@@ -57,7 +57,6 @@ All data inserted through the interface is stored locally in `pregoes.db` using 
 ✅ **Executable build support**
 - Easily converted to `.exe` via `PyInstaller`
 - Example:  
-  ```bash
   pyinstaller --onefile --windowed --icon=icon.ico main.py
 
 ---
