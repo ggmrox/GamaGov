@@ -126,7 +126,6 @@ On errors
 - Improved date picker widget instead of manual date typing
 
 ---
-```text
 
 🧑‍💻 Author
 
@@ -134,8 +133,6 @@ Gabriel Maldaner
 📍 Campinas, São Paulo, Brazil
 💼 Background: Public Procurement & Data Analysis
 📧 Contact: https://github.com/ggmrox
-
-```
 
 ---
 
