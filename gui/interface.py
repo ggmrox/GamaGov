@@ -41,7 +41,7 @@ class Main_Window(tk.Tk):
             entry.grid(row=i, column=1, padx=5, pady=3)
             self.inputs.append(entry)
 
-        tk.Button(self, text="Submit", command=self.on_submit).grid(row=(len(tags)), column=0, columnspan=2, pady=20)
+        tk.Button(self, text="SUBMIT", command=self.on_submit).grid(row=(len(tags)), column=0, columnspan=2, pady=20)
 
     def on_submit(self):
 
