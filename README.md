@@ -129,9 +129,9 @@ On errors
 
 🧑‍💻 Author
 
-Gabriel Maldaner
-📍 Campinas, São Paulo, Brazil
-💼 Background: Public Procurement & Data Analysis
+Gabriel Maldaner  
+📍 Campinas, São Paulo, Brazil  
+💼 Background: Public Procurement & Data Analysis  
 📧 Contact: https://github.com/ggmrox
 
 ---
