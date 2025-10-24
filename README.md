@@ -17,6 +17,8 @@ It provides a simple and intuitive interface for inserting, validating, and stor
 
 ## 📂 Project Structure
 
+```text
+
 GamaGov/
 │
 ├── database/
@@ -28,6 +30,8 @@ GamaGov/
 │ ├── interface.py # Tkinter graphical interface (main window, inputs, buttons)
 │
 ├── main.py # App entry point
+
+```
 
 ---
 
@@ -122,6 +126,7 @@ On errors
 - Improved date picker widget instead of manual date typing
 
 ---
+```text
 
 🧑‍💻 Author
 
@@ -129,6 +134,8 @@ Gabriel Maldaner
 📍 Campinas, São Paulo, Brazil
 💼 Background: Public Procurement & Data Analysis
 📧 Contact: https://github.com/ggmrox
+
+```
 
 ---
 
