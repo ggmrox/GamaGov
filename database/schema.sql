@@ -2,7 +2,7 @@
 CREATE TABLE contracts (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "number" INTEGER NOT NULL CHECK("number" > 0),
-    "year" INTEGER NOT NULL,
+    "year" TEXT NOT NULL CHECK("year" GLOB '[0-9][0-9][0-9][0-9]'),
     "client" TEXT NOT NULL,
     "item" TEXT NOT NULL,
     "supplier" TEXT NOT NULL,

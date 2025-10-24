@@ -43,40 +43,26 @@ class Main_Window(tk.Tk):
     def on_submit(self):
 
         # Confirmation before submiting / for loop to iterate in the inputs list / Insert queries / Delete input fields #
+        values = [entry.get().strip() for entry in self.inputs]
 
-        confirm = messagebox.askquestion("Confirmação", "Tem certeza que deseja enviar os dados inseridos?")
-        if confirm == "yes":
-            values = [entry.get() for entry in self.inputs]
-            
-            contract_number = values[0]
-            year = values[1]
-            client = values[2]
-            item = values[3]
-            supplier = values[4]
-            quantity = values[5]
-            cost = values[6]
-            price = values[7]
-            expiration_date= values[8]
+        if any(v == "" for v in values):
+            messagebox.showerror("Error", "Input info in all fields before submiting!")
 
-            db_manager.insert_contracts(
-                contract_number,
-                year,
-                client,
-                item,
-                supplier,
-                quantity,
-                cost,
-                price,
-                expiration_date
-                )
-
-
-            messagebox.showinfo("Evento", "Enviado com Sucesso!")
-
-            for entry in self.inputs:
-                entry.delete(0, tk.END)
         else:
-             messagebox.showerror("Erro", "Algo deu errado! Tente novamente")
+            confirm = messagebox.askquestion("Confirmation", "Are you sure you want to SUBMIT?")
+            if confirm == "yes":
+                try:
+                    db_manager.insert_contracts(*values)
+                    
+                    for entry in self.inputs:
+                        entry.delete(0, tk.END)
+
+                except Exception:
+                    return
+
+            elif confirm == "no":
+                messagebox.showerror("Cancelamento", "Informação cancelada!")
+        
 
 
 
