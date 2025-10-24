@@ -1,17 +1,20 @@
 import tkinter as tk
 from tkinter import messagebox
+from database import db_manager
+
 
 
 # Tags for the main window - Easy to modify #
 tags = [
-    "Pregão", 
-    "Cliente", 
+    "Contract Number", 
+    "Year",
+    "Client", 
     "Item", 
-    "Fabricante", 
-    "Quantidade", 
-    "Preço Custo", 
-    "Preço Venda", 
-    "Validade ATA"
+    "Supplier", 
+    "Quantity", 
+    "Cost", 
+    "Price", 
+    "Expiration Date"
 ]
 
 class Main_Window(tk.Tk):
@@ -20,7 +23,7 @@ class Main_Window(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("GAMACORP - CONTROLE DE ATAS")
-        self.geometry("350x400")
+        self.geometry("400x400")
         self.option_add("*Font", ("Calibri", 14))
 
         # List for storing user inputs #
@@ -39,16 +42,41 @@ class Main_Window(tk.Tk):
 
     def on_submit(self):
 
-        # Confirmation before submiting / for loop to iterate in the inputs list / Insert queries #
+        # Confirmation before submiting / for loop to iterate in the inputs list / Insert queries / Delete input fields #
 
         confirm = messagebox.askquestion("Confirmação", "Tem certeza que deseja enviar os dados inseridos?")
         if confirm == "yes":
             values = [entry.get() for entry in self.inputs]
-            print(values)
+            
+            contract_number = values[0]
+            year = values[1]
+            client = values[2]
+            item = values[3]
+            supplier = values[4]
+            quantity = values[5]
+            cost = values[6]
+            price = values[7]
+            expiration_date= values[8]
+
+            db_manager.insert_contracts(
+                contract_number,
+                year,
+                client,
+                item,
+                supplier,
+                quantity,
+                cost,
+                price,
+                expiration_date
+                )
+
+
             messagebox.showinfo("Evento", "Enviado com Sucesso!")
 
             for entry in self.inputs:
                 entry.delete(0, tk.END)
+        else:
+             messagebox.showerror("Erro", "Algo deu errado! Tente novamente")
 
 
 
