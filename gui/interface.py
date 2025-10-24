@@ -20,25 +20,28 @@ tags = [
 class Main_Window(tk.Tk):
     
     # Initiating object with main characteristics #
+
     def __init__(self):
         super().__init__()
-        self.title("GAMACORP - CONTROLE DE ATAS")
-        self.geometry("400x400")
+        self.title("GamaGov - Contract Management System")
+        self.geometry("450x400")
         self.option_add("*Font", ("Calibri", 14))
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
 
         # List for storing user inputs #
 
         self.inputs = []
 
-        # Loop to use all the values from "tags" #
+        # Loop to use all the values from "tags", creating each row #
 
-        for index, tag in enumerate(tags):
-            tk.Label(self, text=tag).grid(row=index, column=0, padx=5, pady=3)
+        for i, tag in enumerate(tags):
+            tk.Label(self, text=tag).grid(row=i, column=0, padx=5, pady=3)
             entry = tk.Entry(self)
-            entry.grid(row=index, column=1, padx=5, pady=3)
-            self.inputs.append(entry)        
+            entry.grid(row=i, column=1, padx=5, pady=3)
+            self.inputs.append(entry)
 
-        tk.Button(self, text="Enviar", command=self.on_submit).grid(row=(len(tags)), column=0, columnspan=2, pady=20, sticky="we")
+        tk.Button(self, text="Submit", command=self.on_submit).grid(row=(len(tags)), column=0, columnspan=2, pady=20)
 
     def on_submit(self):
 
@@ -61,7 +64,7 @@ class Main_Window(tk.Tk):
                     return
 
             elif confirm == "no":
-                messagebox.showerror("Cancelamento", "Informação cancelada!")
+                messagebox.showerror("Cancel", "Submiting canceled!")
         
 
 
