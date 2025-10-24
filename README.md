@@ -65,6 +65,7 @@ All data inserted through the interface is stored locally in `pregoes.db` using 
 
 The app uses only one table for now, but can be upgraded to multiple related tables with integrity constraints:
 
+```sql
 CREATE TABLE contracts (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "number" INTEGER NOT NULL CHECK("number" > 0),
@@ -77,36 +78,37 @@ CREATE TABLE contracts (
     "price" NUMERIC NOT NULL CHECK("price" > 0),
     "expiration_date" TEXT NOT NULL CHECK("expiration_date" GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 );
+```
 
 ---
 
 🧩 Application Workflow
 
 User opens the app
-→ Tkinter GUI is displayed (interface.py).
+- Tkinter GUI is displayed (interface.py).
 
 User fills all fields
-→ The app validates empty or invalid values (on_submit() function).
-→ User clicks "Submit" button
+- The app validates empty or invalid values (on_submit() function).
+- User clicks "Submit" button
 
 Message Box shows up asking for confirmation to submit
-→ User clicks Yes: submits and clears fields
-→ User clicks No: cancel the operation and goes back to GUI, mantaining the values on the fields
+- User clicks Yes: submits and clears fields
+- User clicks No: cancel the operation and goes back to GUI, mantaining the values on the fields
 
-→ The app calls:
+- The app calls:
 db_manager.insert_contracts(*values) - Database layer (db_manager.py)
 
 Executes the INSERT query
 Handles integrity errors and constraint violations
 
 On success
-→ The database commits the transaction
-→ A success message is displayed
-→ Input fields are cleared automatically
+- The database commits the transaction
+- A success message is displayed
+- Input fields are cleared automatically
 
 On errors
-→ Displays friendly error messages telling what field is invalid
-→ Raises errors back to the interface if insertion fails
+- Displays friendly error messages telling what field is invalid
+- Raises errors back to the interface if insertion fails
 
 ---
 
