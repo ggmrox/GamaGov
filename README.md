@@ -95,11 +95,12 @@ Message Box shows up asking for confirmation to submit
 - User clicks Yes: submits and clears fields
 - User clicks No: cancel the operation and goes back to GUI, mantaining the values on the fields
 
-- The app calls:
+The app calls:
+
 db_manager.insert_contracts(*values) - Database layer (db_manager.py)
 
-Executes the INSERT query
-Handles integrity errors and constraint violations
+- Executes the INSERT query
+- Handles integrity errors and constraint violations
 
 On success
 - The database commits the transaction
@@ -114,11 +115,11 @@ On errors
 
 🧮 Future Improvements
 
-Add UPDATE and DELETE operations
-Implement search/filter function by contract number or supplier
-Add export to CSV option
-Multi-language support (EN/PT-BR toggle)
-Improved date picker widget instead of manual date typing
+- Add UPDATE and DELETE operations
+- Implement search/filter function by contract number or supplier
+- Add export to CSV option
+- Multi-language support (EN/PT-BR toggle)
+- Improved date picker widget instead of manual date typing
 
 ---
 
